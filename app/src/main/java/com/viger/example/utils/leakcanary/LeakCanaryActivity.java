@@ -30,6 +30,9 @@ public class LeakCanaryActivity extends AppCompatActivity {
         myThread.start();
     }
 
+    //内部类线程内存泄漏解决方法
+    //1、独立到一个单独类中
+    //2、static类
     private static class MyThread extends Thread {
 
         private WeakReference<Activity> reference = null;
