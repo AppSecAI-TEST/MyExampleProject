@@ -1,4 +1,4 @@
-package com.viger.example.amin;
+package com.viger.example.amin.gfwubaloading;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
