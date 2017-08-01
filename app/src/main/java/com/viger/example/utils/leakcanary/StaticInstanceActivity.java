@@ -21,7 +21,7 @@ public class StaticInstanceActivity extends AppCompatActivity {
     }
 
     public void start(View v) {
-        user = new User();
+        //user = new User();
     }
 
     private class User {
