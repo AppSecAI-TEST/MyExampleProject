@@ -11,6 +11,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.squareup.leakcanary.RefWatcher;
+import com.viger.example.MyApplication;
 import com.viger.example.R;
 
 /**
@@ -21,6 +23,7 @@ public class LeakFragment extends Fragment {
 
     private View view;
     private Button btn;
+    private Object o;
 
     @Nullable
     @Override
@@ -48,5 +51,14 @@ public class LeakFragment extends Fragment {
             }
         }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        //检测内存泄漏
+        MyApplication.mRefWatcher.watch(this);
 
+        //检测object是否泄漏
+        RefWatcher mRefWatcher = MyApplication.mRefWatcher;
+        mRefWatcher.watch(o);
+    }
 }
