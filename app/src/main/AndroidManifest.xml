@@ -20,13 +20,13 @@
 
         </activity>
         <activity android:name=".utils.leakcanary.ContextLeakActivity">
-
-        </activity>
-        <activity android:name=".utils.leakcanary.FragmentLeakActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".utils.leakcanary.FragmentLeakActivity">
+
         </activity>
     </application>
 
