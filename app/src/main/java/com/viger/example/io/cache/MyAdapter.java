@@ -1,6 +1,8 @@
 package com.viger.example.io.cache;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -18,10 +20,12 @@ public class MyAdapter extends BaseAdapter {
 
     private ArrayList<String> arrayList;
     private Context context;
+    private ImageCache imageCache;
 
     public MyAdapter(ArrayList<String> arrayList, Context context) {
         this.arrayList = arrayList;
         this.context = context;
+        imageCache = ImageCache.getInstance();
     }
 
     @Override
@@ -43,15 +47,18 @@ public class MyAdapter extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         ViewHolder holder = null;
         if(view==null) {
-            view = View.inflate(context, R.layout.lrucache_listview_item_, viewGroup);
+            view = View.inflate(context, R.layout.lrucache_listview_item_, null);
             holder = new ViewHolder();
             holder.iv_lrucache_img = view.findViewById(R.id.iv_lrucache_img);
             view.setTag(holder);
         }else {
             holder = (ViewHolder) view.getTag();
         }
-        String bitmap = (String) getItem(i);
-
+        String bitmapName = arrayList.get(i);
+        Log.d("tag", "==>getView bitmapName="+bitmapName);
+        //通过缓存拿bitmap
+        Bitmap bitmap = imageCache.getBitmap(bitmapName);
+        holder.iv_lrucache_img.setImageBitmap(bitmap);
         return view;
     }
 

@@ -23,7 +23,6 @@ public class LruCacheActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lrucache);
-        listView = (ListView) findViewById(R.id.lv_lrucache);
         initData();
     }
 
@@ -40,8 +39,12 @@ public class LruCacheActivity extends AppCompatActivity {
             arrayList.add(format);
         }
 
-        myAdapter = new MyAdapter(arrayList, getApplicationContext());
+        listView = (ListView) findViewById(R.id.lv_lrucache);
+
+        myAdapter = new MyAdapter(arrayList, this);
+
         listView.setAdapter(myAdapter);
+
     }
 
 }
