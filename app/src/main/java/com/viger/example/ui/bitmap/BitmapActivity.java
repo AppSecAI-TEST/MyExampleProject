@@ -67,6 +67,10 @@ public class BitmapActivity extends AppCompatActivity {
         }
         options.inJustDecodeBounds = false;
         options.inSampleSize = scaleResult;
+
+        //修改色彩配置
+        options.inPreferredConfig = Bitmap.Config.ARGB_4444;
+
         bitmap = BitmapFactory.decodeFile(Environment.getExternalStorageDirectory() + File.separator + "ss.jpg", options);
         Log.d("tag", "压缩后width2="+bitmap.getWidth()+" 2="+bitmap.getHeight());
         return bitmap;
