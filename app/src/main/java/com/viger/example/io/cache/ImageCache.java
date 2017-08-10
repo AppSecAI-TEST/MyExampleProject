@@ -8,7 +8,7 @@ import android.util.LruCache;
 
 import java.io.File;
 
-/**
+/**a
  * Created by Administrator on 2017/8/9.
  * 单例模式
  */
